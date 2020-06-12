@@ -1,11 +1,28 @@
 import React from "react";
 
 const Timer = (props) => {
+  console.log(props);
   return (
     <div>
-      <h1> It is: {props.countDown} </h1>
+      <h1>
+        {props.currentTimer} {props.countDown}
+      </h1>
     </div>
   );
 };
 
 export default Timer;
+
+// const Timer = (props) => {
+//   console.log(props);
+//   return (
+//     <div>
+//       <h1>
+//         {props.currentTimer} {props.countDown}
+//         {props.children}
+//       </h1>
+//     </div>
+//   );
+// };
+
+// export default Timer;
