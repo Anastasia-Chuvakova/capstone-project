@@ -1,13 +1,26 @@
-import react from "react";
+// import React, { useState, useEffect } from "react";
 
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
-export default class Header extends Component {
-  render() {
-    return (
-      <div>
-        <h1>HI THERE</h1>
-      </div>
-    );
-  }
-}
+// //export default class Header extends Component {
+
+// IntervalExample = () => {
+//   const [seconds, setSeconds] = useState(0);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setSeconds((seconds) => seconds + 1);
+//     }, 1000);
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         {seconds} seconds have elapsed since mounting.
+//       </header>
+//     </div>
+//   );
+// };
+
+// export default IntervalExample;
