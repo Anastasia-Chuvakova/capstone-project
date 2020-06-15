@@ -1,176 +1,82 @@
 import React, { Component } from "react";
-import DayTimer from "./DayTimer";
-
-//import SessionsTimer from "./SessionsTimer";
-import Timer from "./Timer";
-
-class App extends Component {
-  state = {
-    dayTimer: 28800,
-    count: 0,
-    currentTimer: "Work Session",
-    lookAway: "Eye Sight Break:",
-    eyeCount: 3,
-    // mainSession: 2700,
-    //breakSession: 600,
-    //breakForEyes: 20,
-  };
-
-  componentDidMount() {
-    this.setState({ count: 10 });
-
-    this.intervalChange();
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.count <= 0 && this.state.currentTimer === "Work Session") {
-      console.log("time for a break ");
-      this.setState({ count: 7, currentTimer: "Toffee Time!" });
-    } else if (
-      this.state.count <= 0 &&
-      this.state.currentTimer === "Toffee Time!"
-    ) {
-      console.log("time to get back to work");
-      this.setState({ count: 5, currentTimer: "Work Session" });
-    }
-    ////////////////////////////problem here
-    if (this.state.count <= 5 && this.state.currentTimer === "Work Session") {
-      //this.setState({ lookAway: "breakForEyes" });
-      console.log("component update");
-    }
-    //
-  }
-
-  /////////////////////////////////////////////////////////////
-  // componentDidUpdate(prevPrors, prevState) {
-  //   // console.log(prevState);
-  //   if (prevState.count <= 5 && prevState.currentTimer === "workSession") {
-  //     console.log("time up ");
-  //     this.setState({ count: 3, currentTimer: "breakSession" });
-  //   } else if (
-  //     prevState.count <= 0 &&
-  //     prevState.currentTimer === "breakSession"
-  //   ) {
-  //     this.setState({ count: 10, currentTimer: "workSession" });
-  //   }
-  // }
-  intervalChange = () => {
-    this.interval = setInterval(() => {
-      if (this.state.count <= 5 && this.state.currentTimer == "Work Session") {
-        this.setState((prevState) => ({
-          eyeCount: prevState.eyeCount - 1,
-          count: prevState.count - 1,
-        }));
-      } else {
-        this.setState((prevState) => ({
-          count: prevState.count - 1,
-        }));
-      }
-      if (this.state.mainSession <= 0) {
-        //setInterval(() => {}, interval);
-        clearInterval(this.interval);
-      }
-    }, 1000);
-  };
-  /////////////////////////////////////////////////////////////////////////
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  //Redirect,
+} from "react-router-dom";
+import Home from "./Home";
+export default class App extends Component {
   render() {
     return (
-      <ul>
-        <li>
-          <DayTimer
-            startCount={this.state.dayTimer}
-            className="session-timer"
-          />
-        </li>
-        <li id="session">
-          {/* <SessionsTimer startCount={this.state.mainSession}  */}
-          {/* <SessionsTimer startCount /> */}
-          {this.state.currentTimer === "Toffee Time!" ? (
-            <Timer
-              className="session-timer__work"
-              countDown={this.state.count}
-              currentTimer={this.state.currentTimer}
-            />
-          ) : (
-            <div>
-              <Timer
-                className="session-timer__break"
-                countDown={this.state.count}
-                currentTimer={this.state.currentTimer}
-              ></Timer>
-              <Timer
-                className="session-timer__eyes-break"
-                countDown={this.state.count}
-                currentTimer={this.state.lookAway}
-              >
-                <p>look away!{this.state.eyeCount}</p>
-              </Timer>
-            </div>
-          )}
-        </li>
-      </ul>
+      <div>
+        <Router>
+          <Switch>
+            <Route pathe="/" component={Home} exact />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
-export default App;
-////////////////////////////////////////////////////////////////////////////////////////////
-//before changes////
 
-// class App extends Component {
-//   state = {
-//     dayTimer: 28800,
-//     //count: "workSession",
-//     currentTimer: "workSession",
-//     //mainSession: 5,
-//     // mainSession: 2700,
-//     //breakSession: 3,
-//     //breakSession: 600,
-//     //breakForEyes: 20,
-//   };
-//   //////////////////////////////////////////////////////////////////////////////////
+//////////////////////////LEAVE IT FOR NOW////////////////////
+//import React, { Component } from "react";
+// //import axios from "axios";
+// var axios = require("axios");
+// // Access-Control-Allow-Origin:{"https://random-quote-generator.herokuapp.com/api/quotes/random"}
+// // import {
+// //   Dropdown,
+// //   DropdownToggle,
+// //   DropdownMenu,
+// //   DropdownItem,
+// // } from "reactstrap";
+
+// export default class App extends Component {
 //   componentDidMount() {
-//     //let { startCount } = this.props;
-//     this.setState({ count: 5 });
-//     this.intervalChange();
+//     //   url: "https://random-quote-generator.herokuapp.com/api/quotes/random",
+//     const API_URL =
+//       "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
+
+//     axios
+//       .get(
+//         { API_URL }
+//         //`?method=getQuote&lang=en&format=jsonp&jsonp=?`
+//       )
+//       .then((response) => {
+//         console.log(response);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
 //   }
 
-//   /////////////////////////////////////////////////////////////
-//   componentDidUpdate(prevPrors, prevState) {
-//     // console.log(prevState);
-//     if (prevState.count <= 5 && prevState.currentTimer === "workSession") {
-//       console.log("time up ");
-//       this.setState({ count: 5, currentTimer: "breakSession" });
-//     } else if (
-//       prevState.count <= 0 &&
-//       prevState.currentTimer === "breakSession"
-//     ) {
-//       this.setState({ count: 10, currentTimer: "workSession" });
-//     }
-//   }
-//   intervalChange = () => {
-//     this.interval = setInterval(() => {
-//       this.setState((prevState) => ({
-//         count: prevState.count - 1,
-//       }));
-//       if (this.state.mainSession <= 0) {
-//         //setInterval(() => {}, interval);
-//         clearInterval(this.interval);
-//       }
-//     }, 1000);
-//   };
-//   /////////////////////////////////////////////////////////////////////////
 //   render() {
 //     return (
 //       <ul>
 //         <li>
-//           <DayTimer startCount={this.state.dayTimer} />
+//           <h1 className="timer-option__title">Choose your timer</h1>
 //         </li>
-//         <li id="session">
-//           {/* <SessionsTimer startCount={this.state.mainSession}  */}
-//           {/* <SessionsTimer startCount /> */}
-//           <Timer countDown={this.state.count} />
+//         <li>
+//           <div className="timer-option__wrapper">
+//             <button className="timer-option">Pomodoro</button>
+//             <div className="timer-option__description">
+//               <p>Pomodoro method description</p>
+//             </div>
+//             <button className="timer-option">Regular</button>
+//             <div className="timer-option__description">
+//               <p>Regular method description</p>
+//             </div>
+//             <button className="timer-option">Set your own</button>
+//             <div className="timer-option__description">
+//               <p>Set your own method description</p>
+//             </div>
+//           </div>
+//           <div className="footer">
+//             <p>random quote</p>
+//           </div>
 //         </li>
 //       </ul>
 //     );
 //   }
 // }
-// export default App;

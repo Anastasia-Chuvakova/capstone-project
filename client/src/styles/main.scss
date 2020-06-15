@@ -1,2 +1,28 @@
-@import "./partials/header";
-@import "./partials/timers";
+//@import "./partials/timers";
+@import "./partials/home";
+
+a {
+  text-decoration: none !important;
+  color: #323232;
+}
+$font-main: "Courier New";
+
+/*
+  BASE
+*/
+html,
+body {
+  margin: 0;
+  font-family: $font-main; // sets default text font for entire project
+  // color: $primary-dark; // sets default text color for entire project
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}

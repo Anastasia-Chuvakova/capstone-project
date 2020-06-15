@@ -1,1 +1,103 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+.home-page__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 16px;
+}
+
+.home-page__timer-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 16px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.timer-option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 8px 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  background-color: #87a4f9;
+  color: white;
+  border-color: transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 3px 5px 10px 0px #665866;
+          box-shadow: 3px 5px 10px 0px #665866;
+}
+
+.timer-option__description {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 16px;
+}
+
+.home-page__quotes-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 16px;
+}
+
+.home-page__quote-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  border-radius: 4px;
+  -webkit-box-shadow: 3px 5px 10px 0px #665866;
+          box-shadow: 3px 5px 10px 0px #665866;
+}
+
+a {
+  text-decoration: none !important;
+  color: #323232;
+}
+
+/*
+  BASE
+*/
+html,
+body {
+  margin: 0;
+  font-family: "Courier New";
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,55 @@
+//@import "../main.scss";
+
+.home-page__title {
+  display: flex;
+  margin: 0 16px;
+}
+
+.home-page__timer-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px;
+  justify-content: space-evenly;
+}
+
+.timer-option {
+  display: flex;
+  width: 100%;
+  margin: 8px 0;
+  justify-content: center;
+  padding: 5px;
+  background-color: #87a4f9;
+  color: white;
+  border-color: transparent;
+  border-radius: 4px;
+  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+  //font-family: $font-main;
+}
+
+.timer-option__description {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.footer {
+  display: flex;
+  margin: 0 16px;
+}
+
+.home-page__quotes-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px;
+}
+
+.home-page__quote-img {
+  display: flex;
+  object-fit: contain;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+}

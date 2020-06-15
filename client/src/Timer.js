@@ -3,11 +3,13 @@ import React from "react";
 const Timer = (props) => {
   console.log(props);
   return (
-    <div>
-      <h1>
-        {props.currentTimer} {props.countDown}
-      </h1>
-    </div>
+    <>
+      <div className={props.className}>
+        <h1 className="session-timer">
+          {props.currentTimer} {props.countDown}
+        </h1>
+      </div>
+    </>
   );
 };
 

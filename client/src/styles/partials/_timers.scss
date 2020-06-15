@@ -1,3 +1,8 @@
 .session-timer__work {
   color: red;
 }
+.session-timer__eyes-break {
+  &--hidden {
+    display: none;
+  }
+}
