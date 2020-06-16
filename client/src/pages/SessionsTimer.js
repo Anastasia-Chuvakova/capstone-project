@@ -1,9 +1,23 @@
 import React, { Component } from "react";
-import DayTimer from "./DayTimer";
+import DayTimer from "../DayTimer";
+import { Route, Link, Switch } from "react-router-dom";
+import YourTimer from "./YourTimer";
+import Timer from "../Timer";
 
-//import SessionsTimer from "./SessionsTimer";
-import Timer from "./Timer";
-
+const initialState = {
+  dayTimer: 200,
+  // dayTimer: 28800,
+  currentTimer: "Work Session",
+  lookAway: "Eye Sight Break:",
+  eyeTime: 3,
+  eyeCount: 3,
+  eyeBreakIsActive: false,
+  workSessionIsActive: true,
+  toffeeTimeIsActive: false,
+  // mainSession: 2700,
+  //breakSession: 600,
+  //breakForEyes: 20,
+};
 class SessionsTimer extends Component {
   state = {
     dayTimer: 200,
@@ -20,12 +34,17 @@ class SessionsTimer extends Component {
     //breakForEyes: 20,
   };
 
+  setOwnSession = (time) => {
+    console.log("SET TIME");
+    this.setState({ dayTimer: time });
+  };
   componentDidMount() {
     this.setState({ count: 10 });
 
     this.intervalChange();
   }
   componentDidUpdate(prevProps, prevState) {
+    console.log("component did update");
     if (prevState.count <= 0 && prevState.currentTimer === "Work Session") {
       console.log("time for a break ");
       this.setState({ count: 7, currentTimer: "Toffee Time!" });
@@ -45,24 +64,11 @@ class SessionsTimer extends Component {
     //
   }
 
-  /////////////////////////////////////////////////////////////
-  // componentDidUpdate(prevPrors, prevState) {
-  //   // console.log(prevState);
-  //   if (prevState.count <= 5 && prevState.currentTimer === "workSession") {
-  //     console.log("time up ");
-  //     this.setState({ count: 3, currentTimer: "breakSession" });
-  //   } else if (
-  //     prevState.count <= 0 &&
-  //     prevState.currentTimer === "breakSession"
-  //   ) {
-  //     this.setState({ count: 10, currentTimer: "workSession" });
-  //   }
-  // }
   intervalChange = () => {
     this.interval = setInterval(() => {
       if (
         this.state.count <= 5 &&
-        this.state.currentTimer == "Work Session" &&
+        this.state.currentTimer === "Work Session" &&
         this.state.eyeCount > 0
       ) {
         this.setState((props) => ({
@@ -91,53 +97,63 @@ class SessionsTimer extends Component {
   /////////////////////////////////////////////////////////////////////////
   render() {
     return (
-      <form>
-        <div>
-          <button>start!</button>
-        </div>
-        <ul>
-          <li>
-            <DayTimer
-              startCount={this.state.dayTimer}
-              className="session-timer"
-            />
-          </li>
-          <li id="session">
-            {/* <SessionsTimer startCount={this.state.mainSession}  */}
-            {/* <SessionsTimer startCount /> */}
-            {this.state.currentTimer === "Toffee Time!" ? (
-              <Timer
-                className="session-timer__work "
-                countDown={this.state.count}
-                currentTimer={this.state.currentTimer}
-              />
-            ) : (
-              <div>
-                <Timer
-                  className="session-timer__break"
-                  countDown={this.state.count}
-                  currentTimer={this.state.currentTimer}
-                ></Timer>
-                <Timer
-                  className={
-                    this.state.eyeBreakIsActive
-                      ? true
-                      : "session-timer__eyes-break--hidden"
-                  }
-                  //className="session-timer__eyes-break"
-                  countDown={this.state.eyeCount}
-                  currentTimer={this.state.lookAway}
-                >
-                  <p>look away!{this.state.eyeCount}</p>
-                </Timer>
-              </div>
-            )}
-          </li>
-        </ul>
-        <div>
-          <button>finish early</button>
-        </div>
-      </form>
+      <div>
+        <Switch>
+          <Route path="/sessionstimer" exact>
+            <div>
+              <button>start!</button>
+            </div>
+            <ul>
+              <li>
+                <DayTimer
+                  startCount={this.state.dayTimer}
+                  className="session-timer"
+                />
+              </li>
+              <li id="session">
+                {/* <SessionsTimer startCount={this.state.mainSession}  */}
+                {/* <SessionsTimer startCount /> */}
+                {this.state.currentTimer === "Toffee Time!" ? (
+                  <Timer
+                    className="session-timer__work "
+                    countDown={this.state.count}
+                    currentTimer={this.state.currentTimer}
+                  />
+                ) : (
+                  <div>
+                    <Timer
+                      className="session-timer__break"
+                      countDown={this.state.count}
+                      currentTimer={this.state.currentTimer}
+                    ></Timer>
+                    <Timer
+                      className={
+                        this.state.eyeBreakIsActive
+                          ? true
+                          : "session-timer__eyes-break--hidden"
+                      }
+                      //className="session-timer__eyes-break"
+                      countDown={this.state.eyeCount}
+                      currentTimer={this.state.lookAway}
+                    >
+                      <p>look away!{this.state.eyeCount}</p>
+                    </Timer>
+                  </div>
+                )}
+              </li>
+            </ul>
+            <div>
+              <Link to={`/home`} exact>
+                <button>finish early</button>
+              </Link>
+            </div>
+          </Route>
+          <Route
+            path="/sessionstimer/yourtimer"
+            render={() => <YourTimer setOwnSession={this.setOwnSession} />}
+          />
+        </Switch>
+      </div>
     );
   }
 }

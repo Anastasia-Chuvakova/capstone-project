@@ -1,5 +1,16 @@
 //@import "./partials/timers";
 @import "./partials/home";
+@import "partials/_mixins";
+
+$black: #323232;
+$instoke-blue: #004892;
+$brainflix-blue: #0095ff;
+$white: #ffffff;
+$silver: #afafaf;
+$instock-blue-dark: #002f5f;
+$brainflisx-blue: #0065ad;
+$mercury: #e1e1e1;
+$alabaster: #fafafa;
 
 a {
   text-decoration: none !important;
@@ -14,7 +25,7 @@ html,
 body {
   margin: 0;
   font-family: $font-main; // sets default text font for entire project
-  // color: $primary-dark; // sets default text color for entire project
+  color: $black; // sets default text color for entire project
 }
 
 ul {
@@ -25,4 +36,32 @@ ul {
 li {
   text-decoration: none;
   list-style: none;
+}
+
+// breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desk: 1440px;
+
+@function px-to-rem($px) {
+  @return ($px / 16) + rem;
+}
+
+@include mobile-breakpoint {
+  //h1
+
+  .main-title {
+    font-size: px-to-rem(24);
+    line-height: px-to-rem(32);
+  }
+  //h2
+
+  .subheader {
+    font-size: px-to-rem(14);
+    line-height: px-to-rem(22);
+  }
+  .paragraph {
+    font-size: px-to-rem(13);
+    line-height: px-to-rem(18);
+  }
 }

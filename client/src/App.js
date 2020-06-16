@@ -5,14 +5,20 @@ import {
   Route,
   //Redirect,
 } from "react-router-dom";
-import Home from "./Home";
+import Home from "./pages/Home";
+import SessionsTimer from "./pages/SessionsTimer";
+import YourTimer from "./pages/YourTimer";
+import PomodoroTimer from "./pages/PomodoroTimer";
 export default class App extends Component {
   render() {
     return (
       <div>
         <Router>
           <Switch>
-            <Route pathe="/" component={Home} exact />
+            <Route path="/home" component={Home} exact />
+            <Route path="/sessionstimer" component={SessionsTimer} />
+
+            <Route path="/pomodoro" component={PomodoroTimer} exact />
           </Switch>
         </Router>
       </div>

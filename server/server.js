@@ -5,6 +5,7 @@ const app = express();
 const HomeRoutes = require("./routes/HomeRoutes");
 
 app.use(express.json());
+app.use(express.static("public"));
 
 //root
 app.get("/", (req, res) => {
