@@ -1,26 +1,11 @@
-// import React, { useState, useEffect } from "react";
+import React from "react";
+import Hooks from "../pages/Hooks";
 
-// import React, { Component } from "react";
-
-// //export default class Header extends Component {
-
-// IntervalExample = () => {
-//   const [seconds, setSeconds] = useState(0);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setSeconds((seconds) => seconds + 1);
-//     }, 1000);
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         {seconds} seconds have elapsed since mounting.
-//       </header>
-//     </div>
-//   );
-// };
-
-// export default IntervalExample;
+export default function Header() {
+  return (
+    <div className="header-item__wrapper">
+      <Hooks />
+      <h2 className="header subheader">Toffee Time</h2>
+    </div>
+  );
+}

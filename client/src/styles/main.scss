@@ -1,16 +1,7 @@
 //@import "./partials/timers";
 @import "./partials/home";
 @import "partials/_mixins";
-
-$black: #323232;
-$instoke-blue: #004892;
-$brainflix-blue: #0095ff;
-$white: #ffffff;
-$silver: #afafaf;
-$instock-blue-dark: #002f5f;
-$brainflisx-blue: #0065ad;
-$mercury: #e1e1e1;
-$alabaster: #fafafa;
+@import "partials/_header";
 
 a {
   text-decoration: none !important;
@@ -25,7 +16,7 @@ html,
 body {
   margin: 0;
   font-family: $font-main; // sets default text font for entire project
-  color: $black; // sets default text color for entire project
+  color: #3d3932; // sets default text color for entire project
 }
 
 ul {

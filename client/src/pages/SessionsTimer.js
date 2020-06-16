@@ -4,24 +4,32 @@ import { Route, Link, Switch } from "react-router-dom";
 import YourTimer from "./YourTimer";
 import Timer from "../Timer";
 
-const initialState = {
-  dayTimer: 200,
-  // dayTimer: 28800,
-  currentTimer: "Work Session",
-  lookAway: "Eye Sight Break:",
-  eyeTime: 3,
-  eyeCount: 3,
-  eyeBreakIsActive: false,
-  workSessionIsActive: true,
-  toffeeTimeIsActive: false,
-  // mainSession: 2700,
-  //breakSession: 600,
-  //breakForEyes: 20,
-};
+// const initialState = {
+//   //dayTimer is an 8 hour timer
+//   dayTimer: 200,
+//   // dayTimer: 28800,
+//   workTimer: 2,
+//   breakTimer: 2,
+//   currentTimer: "Work Session",
+//   lookAway: "Eye Sight Break:",
+//   eyeTime: 3,
+//   eyeCount: 3,
+//   eyeBreakIsActive: false,
+//   workSessionIsActive: true,
+//   toffeeTimeIsActive: false,
+//   // mainSession: 2700,
+//   //breakSession: 600,
+//   //breakForEyes: 20,
+// };
 class SessionsTimer extends Component {
   state = {
     dayTimer: 200,
     // dayTimer: 28800,
+    pomodoroCount: 10,
+    ruleCount: 5,
+    customCount: 6,
+
+    //common for all timers
     currentTimer: "Work Session",
     lookAway: "Eye Sight Break:",
     eyeTime: 3,
@@ -30,6 +38,8 @@ class SessionsTimer extends Component {
     workSessionIsActive: true,
     toffeeTimeIsActive: false,
     // mainSession: 2700,
+    // breakSession: 600,
+    // mainSession: 2700,
     //breakSession: 600,
     //breakForEyes: 20,
   };
@@ -37,37 +47,72 @@ class SessionsTimer extends Component {
   setOwnSession = (time) => {
     console.log("SET TIME");
     this.setState({ dayTimer: time });
+    this.setState({ mainSession: time });
+    this.setState({ breakSession: time });
   };
-  componentDidMount() {
-    this.setState({ count: 10 });
 
+  componentDidMount() {
+    // this.setState({ count: 10 });
+    /// on click  =>
     this.intervalChange();
   }
   componentDidUpdate(prevProps, prevState) {
+    this.pomodoroTimer(prevState);
+    this.ruleTimer(prevState);
+    this.customTimer(prevState);
+  }
+  ////////////////pomodoro timer
+  pomodoroTimer = (prevState) => {
     console.log("component did update");
-    if (prevState.count <= 0 && prevState.currentTimer === "Work Session") {
+    if (
+      prevState.pomodoroCount <= 0 &&
+      prevState.currentTimer === "Work Session"
+    ) {
       console.log("time for a break ");
-      this.setState({ count: 7, currentTimer: "Toffee Time!" });
+      this.setState({ pomodoroCount: 7, currentTimer: "Toffee Time!" });
     } else if (
-      prevState.count <= 0 &&
+      prevState.pomodoroCount <= 0 &&
       prevState.currentTimer === "Toffee Time!"
     ) {
       console.log("time to get back to work");
-      this.setState({ count: 10, currentTimer: "Work Session" });
+      this.setState({ pomodoroCount: 10, currentTimer: "Work Session" });
     }
-
-    ////////////////////////////problem here
-    // if (this.state.count <= 5 && this.state.currentTimer === "Work Session") {
-    //   this.setState({ lookAway: "breakForEyes" });
-    //   console.log("component update");
-    // }
-    //
-  }
-
+  };
+  /////////////////// 15 17 rule timer
+  ruleTimer = (prevState) => {
+    console.log("component did update");
+    if (prevState.ruleCount <= 0 && prevState.currentTimer === "Work Session") {
+      console.log("time for a break ");
+      this.setState({ ruleCount: 7, currentTimer: "Toffee Time!" });
+    } else if (
+      prevState.ruleCount <= 0 &&
+      prevState.currentTimer === "Toffee Time!"
+    ) {
+      console.log("time to get back to work");
+      this.setState({ ruleCount: 10, currentTimer: "Work Session" });
+    }
+  };
+  /////////////// set custom timer
+  customTimer = (prevState) => {
+    console.log("component did update");
+    if (
+      prevState.customCount <= 0 &&
+      prevState.currentTimer === "Work Session"
+    ) {
+      console.log("time for a break ");
+      this.setState({ customCount: 7, currentTimer: "Toffee Time!" });
+    } else if (
+      prevState.customCount <= 0 &&
+      prevState.currentTimer === "Toffee Time!"
+    ) {
+      console.log("time to get back to work");
+      this.setState({ customCount: 10, currentTimer: "Work Session" });
+    }
+  };
   intervalChange = () => {
     this.interval = setInterval(() => {
       if (
-        this.state.count <= 5 &&
+        this.state.ruleCount <= 5 &&
         this.state.currentTimer === "Work Session" &&
         this.state.eyeCount > 0
       ) {
@@ -76,7 +121,7 @@ class SessionsTimer extends Component {
           eyeCount: this.state.eyeCount - 1,
         }));
         this.setState((prevState) => ({
-          count: prevState.count - 1,
+          ruleCount: prevState.ruleCount - 1,
         }));
       } else if (this.state.eyeCount <= 0 && this.state.eyeBreakIsActive) {
         this.setState((props) => ({
@@ -85,7 +130,7 @@ class SessionsTimer extends Component {
         }));
       } else {
         this.setState((prevState) => ({
-          count: prevState.count - 1,
+          ruleCount: prevState.ruleCount - 1,
         }));
       }
       if (this.state.mainSession <= 0) {
@@ -94,6 +139,12 @@ class SessionsTimer extends Component {
       }
     }, 1000);
   };
+
+  // finish=()=>{
+  //   if finish early is cliccked or the day timer is = 0,
+  //   return time info to the endrecord pageXOffset.
+  // }
+
   /////////////////////////////////////////////////////////////////////////
   render() {
     return (
@@ -143,7 +194,7 @@ class SessionsTimer extends Component {
               </li>
             </ul>
             <div>
-              <Link to={`/home`} exact>
+              <Link to={"/endrecord"} exact>
                 <button>finish early</button>
               </Link>
             </div>

@@ -7,7 +7,7 @@ export default class PomodoroTimer extends Component {
       <div>
         <h1>hi</h1>
         <div>
-          <Link to={`/home`} exact>
+          <Link to={"/endrecord"} exact>
             <button>finish early</button>
           </Link>
         </div>
