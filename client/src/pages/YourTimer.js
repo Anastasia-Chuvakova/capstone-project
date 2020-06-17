@@ -7,11 +7,11 @@ class YourTimer extends Component {
     event.preventDefault();
     console.log(event.target.time.value);
     this.props.setOwnSession(event.target.time.value);
-    this.props.history.push("/sessionstimer");
+    //this.props.history.push("/sessionstimer");
   };
-  componentDidMount() {
-    console.log("your timer is mounted");
-  }
+  // componentDidMount() {
+  //   console.log("your timer is mounted");
+  // }
   render() {
     return (
       <div>

@@ -14,7 +14,7 @@ import Header from "../components/Header";
 export default class Home extends Component {
   state = {
     quoteData: [],
-    allowZeroExpanded: false,
+    //allowZeroExpanded: false,
   };
 
   componentDidMount() {
@@ -77,7 +77,7 @@ export default class Home extends Component {
                       minutes at a time, then break for 17 minutes before
                       getting back to it (similar to the Pomodoro Method
                     </p>
-                    <Link to={`/sessionstimer`}>
+                    <Link to={`/sessionstimer/rule-timer`}>
                       <button type="button" className="timer-option">
                         start timer
                       </button>

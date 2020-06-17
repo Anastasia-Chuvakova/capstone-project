@@ -3,13 +3,13 @@
     "id": "1ioyh",
     "quote": "Success usually comes to those who are too busy to be looking for it.",
     "author": "-- Henry David Thoreau",
-    "image": "assets/thinker.jpg"
+    "image": "assets/.jpg"
   },
   {
     "id": "2ioyh",
     "quote": "Opportunities don't happen. You create them.",
     "author": "-- Chris Grosser",
-    "image": "assets/thinker.jpg"
+    "image": "assets/rocket.jpg"
   },
   {
     "id": "3ioyh",
@@ -56,7 +56,7 @@
   {
     "id": "10ioyh",
     "quote": "The only place where success comes before work is in the dictionary.",
-    "author": "-- Chris Grosser",
-    "image": "assets/thinker.jpg"
+    "author": "-- Vince Lombardi",
+    "image": "assets/Vince-Lombardi.jpg"
   }
 ]
