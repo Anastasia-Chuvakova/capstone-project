@@ -1,27 +1,12 @@
 import React, { Component } from "react";
 import DayTimer from "../DayTimer";
 import { Route, Link, Switch } from "react-router-dom";
-import YourTimer from "./YourTimer";
+import SetYourTimer from "./SetYourTimer";
 import Timer from "../Timer";
 import RuleTimer from "./RuleTimer";
+import PomodoroTimer from "./PomodoroTimer";
 
-// const initialState = {
-//   //dayTimer is an 8 hour timer
-//   dayTimer: 200,
-//   // dayTimer: 28800,
-//   workTimer: 2,
-//   breakTimer: 2,
-//   currentTimer: "Work Session",
-//   lookAway: "Eye Sight Break:",
-//   eyeTime: 3,
-//   eyeCount: 3,
-//   eyeBreakIsActive: false,
-//   workSessionIsActive: true,
-//   toffeeTimeIsActive: false,
-//   // mainSession: 2700,
-//   //breakSession: 600,
-//   //breakForEyes: 20,
-// };
+
 class SessionsTimer extends Component {
   state = {
     dayTimer: 200,
@@ -121,10 +106,10 @@ class SessionsTimer extends Component {
       }
     }, 1000);
   };
-componentWillUnmount(){
-  console.log("component unmounted")
-
-}
+  componentWillUnmount() {
+    console.log('component unmounted');
+    clearInterval(this.interval);
+  }
   // finish=()=>{
   //   if finish early is cliccked or the day timer is = 0,
   //   return time info to the endrecord pageXOffset.
@@ -184,14 +169,19 @@ componentWillUnmount(){
               </Link>
             </div>
           </Route>
-          <Route
-            path="/sessionstimer/yourtimer"
-            render={() => <YourTimer setOwnSession={this.setOwnSession} />}
+           <Route
+            path="/sessionstimer/pomodoro"
+            render={() => <PomodoroTimer count={this.state.count} />}
           />
            <Route
             path="/sessionstimer/rule-timer"
             render={() => <RuleTimer setOwnSession={this.setOwnSession} />}
           />
+          <Route
+            path="/sessionstimer/setyourtimer"
+            render={() => <SetYourTimer setOwnSession={this.setOwnSession} />}
+          />
+          
         </Switch>
       </div>
     );

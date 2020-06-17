@@ -58,7 +58,7 @@ export default class Home extends Component {
                       Pomodoros take a longer break 30 minutes
                     </p>
 
-                    <Link to={`/pomodoro`}>
+                   <Link to={`/sessionstimer/pomodoro`}>
                       <button className="timer-option">start timer</button>
                     </Link>
                   </AccordionItemPanel>
@@ -97,7 +97,7 @@ export default class Home extends Component {
                       This options allows you to set your own timer, by choosing
                       the length for your main wokring sessions, and breaks.
                     </p>
-                    <Link to={"/sessionstimer/yourtimer"}>
+                    <Link to={"/sessionstimer/setyourtimer"}>
                       <button className="timer-option">set timer</button>
                     </Link>
                   </AccordionItemPanel>

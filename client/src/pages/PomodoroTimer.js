@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
-export default class PomodoroTimer extends Component {
-  render() {
-    return (
+const PomodoroTimer = (props) => {
+  //this.props.history.push("/sessionstimer");
+  return (
+    <div>
+      <h2>It is: {props.currentTimer}</h2>
+      <h1>Current timer:{props.count}</h1>
       <div>
-        <h1>hi</h1>
-        <div>
-          <Link to={"/endrecord"} exact>
-            <button>finish early</button>
-          </Link>
-        </div>
+        <Link to={'/endrecord'}>finish early</Link>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+export default withRouter(PomodoroTimer);
