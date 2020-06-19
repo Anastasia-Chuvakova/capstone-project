@@ -1,5 +1,10 @@
 //@import "../main.scss";
 
+.home-page__container {
+  @include tablet-breakpoint {
+    display: flex;
+  }
+}
 .home-page__title {
   display: flex;
   margin: 0 16px;
