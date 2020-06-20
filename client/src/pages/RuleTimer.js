@@ -13,7 +13,9 @@ const RuleTimer = (props) => {
         Start timer
       </button>
       <div>
-        <Link to={"/endrecord"}>finish early</Link>
+        <Link to={"/endrecord"}>
+          <button>finish early</button>
+        </Link>
       </div>
     </div>
   );

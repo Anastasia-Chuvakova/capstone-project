@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1pojd",
+    "count": "5",
+    "currentSession": "default",
+    "currentTimer": "Work Session",
+    "timerActive": "false"
+  },
+  {
+    "id": "2pojd",
+    "currentSession": "pomodoro",
+    "count": "25",
+    "currentTimer": "Work Session",
+    "timerActive": "false"
+  },
+  {
+    "id": "3pojd",
+    "currentSession": "52 17 rule",
+    "count": "15",
+    "currentTimer": "Work Session",
+    "timerActive": "false"
+  },
+  {
+    "id": "4pojd",
+    "currentSession": "custom",
+    "customWorkCount": "10",
+    "customBreakCount": "10",
+    "breakTimer": "Toffee Time!",
+    "currentTimer": "Work Session",
+    "timerActive": "false"
+  }
+]

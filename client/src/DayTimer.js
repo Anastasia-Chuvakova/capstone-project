@@ -3,7 +3,7 @@ import moment from "moment";
 
 export default class DayTimer extends Component {
   state = {
-    count: 0,
+    count: 200,
   };
 
   componentDidMount() {
@@ -29,8 +29,9 @@ export default class DayTimer extends Component {
     let { count } = this.state;
     return (
       <div>
-        <h2>current count: {moment.utc(count * 1000).format("HH:mm")}</h2>
+        <h2>current count: {moment.utc(count * 1000).format("HH:mm:ss")}</h2>
       </div>
     );
   }
 }
+/* <h2>current count: {moment.utc(count * 1000).format("HH:mm")}</h2> */

@@ -26,7 +26,7 @@ export default class Home extends Component {
         this.setState({ quoteData });
       });
 
-    console.log("INFO NUMBER 1 : ", this);
+    console.log("INFO NUMBER ABOUT QUOTES : ", this);
   }
 
   render() {

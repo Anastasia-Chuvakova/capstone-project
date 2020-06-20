@@ -15,16 +15,16 @@ const Timer = (props) => {
 
 export default Timer;
 
-// const Timer = (props) => {
-//   console.log(props);
-//   return (
-//     <div>
-//       <h1>
-//         {props.currentTimer} {props.countDown}
-//         {props.children}
-//       </h1>
-//     </div>
-//   );
-// };
+const Timer = (props) => {
+  console.log(props);
+  return (
+    <div>
+      <h1>
+        {props.currentTimer} {props.countDown}
+        {props.children}
+      </h1>
+    </div>
+  );
+};
 
-// export default Timer;
+export default Timer;

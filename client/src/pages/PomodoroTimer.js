@@ -23,7 +23,9 @@ const PomodoroTimer = (props) => {
         </button>
       </div>
       <div>
-        <Link to={"/endrecord"}>finish early</Link>
+        <Link to={"/endrecord"}>
+          <button>finish early</button>
+        </Link>
       </div>
     </div>
   );

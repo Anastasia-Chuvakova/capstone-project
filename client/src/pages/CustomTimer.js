@@ -1,26 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import EndRecord from "./pages/EndRecord";
+
 const CustomTimer = (props) => {
   console.log("Custom timer rendered");
 
   const handleTimerFormSubmit = (event) => {
     event.preventDefault();
-    props.setCustomTimer(event.target.custom_timer.value);
+    props.setCustomTimer(event.target.work_timer.value);
+    props.setCustomTimer(event.target.break_timer.value);
   };
 
   return (
     <div>
       <h1>Custom Timer</h1>
-      {props.timerCount}
-      <button onClick={() => props.startTimer("custom")}>Start timer</button>
+
       <form onSubmit={handleTimerFormSubmit}>
-        <input type="number" name="custom_timer-work" />
-        <input type="number" name="custom_timer-break" />
+        <div>
+          {props.workTimerCount}, {props.currentTimer};
+          <input type="number" name="work_timer" />
+        </div>
+        <div>
+          {props.breakTimerCount}, {props.breakTimer};
+          <input type="number" name="break_timer" />
+        </div>
+
         <button type="submit">Set time</button>
       </form>
+      <button onClick={() => props.startTimer("custom")}>Start timer</button>
       <div>
-        <Link to={"/endrecord"}>finish early</Link>
+        <Link to={"/endrecord"}>
+          <button>finish early</button>
+        </Link>
       </div>
     </div>
   );
