@@ -1,3 +1,13 @@
+import React from "react";
+
+export default function Header() {
+  return (
+    <div>
+      <h2>Toffee Time</h2>
+    </div>
+  );
+}
+
 // import React from "react";
 // import { Link } from "react-router-dom";
 

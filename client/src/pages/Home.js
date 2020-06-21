@@ -73,7 +73,7 @@ export default class Home extends Component {
                       of paper Take a short break (5 minutes is OK). Every 4
                       Pomodoros take a longer break 30 minutes
                     </p>
-                    <Link to={`/sessionstimer/pomodoro-timer`}>
+                    <Link to={`/sessionstimer/pomodoro`}>
                       <button className="timer-option">go to timer</button>
                     </Link>
                   </AccordionItemPanel>

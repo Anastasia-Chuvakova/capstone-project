@@ -1,6 +1,21 @@
 [
   {
+    "id": "0",
+    "workTime": "0",
+    "breakTime": "0",
+    "dayTime": "0",
+    "dayCount": "0",
+    "count": "0",
+    "currentSession": "initial",
+    "currentTimer": "",
+    "timerActive": "false"
+  },
+  {
     "id": "1pojd",
+    "workTime": "5",
+    "breakTime": "3",
+    "dayTime": "30",
+    "dayCount": "30",
     "count": "5",
     "currentSession": "default",
     "currentTimer": "Work Session",
@@ -8,6 +23,10 @@
   },
   {
     "id": "2pojd",
+    "workTime": "25",
+    "breakTime": "7",
+    "dayTime": "30",
+    "dayCount": "30",
     "currentSession": "pomodoro",
     "count": "25",
     "currentTimer": "Work Session",
@@ -15,6 +34,10 @@
   },
   {
     "id": "3pojd",
+    "workTime": "15",
+    "breakTime": "17",
+    "dayTime": "30",
+    "dayCount": "30",
     "currentSession": "52 17 rule",
     "count": "15",
     "currentTimer": "Work Session",
@@ -22,6 +45,10 @@
   },
   {
     "id": "4pojd",
+    "workTime": "10",
+    "breakTime": "10",
+    "dayTime": "30",
+    "dayCount": "30",
     "currentSession": "custom",
     "customWorkCount": "10",
     "customBreakCount": "10",
