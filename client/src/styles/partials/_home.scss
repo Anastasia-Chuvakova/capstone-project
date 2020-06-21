@@ -1,11 +1,13 @@
 //@import "../main.scss";
 
-.home-page__container {
-  @include tablet-breakpoint {
-    display: flex;
-  }
+.home-page__greeting {
+  margin: 30px 16px;
 }
-.home-page__title {
+.home-page__container {
+  display: flex;
+  flex-direction: column;
+}
+.home-page__accordion-title {
   display: flex;
   margin: 0 16px;
   background-color: lightgray;
@@ -40,16 +42,24 @@
   //z-index: 1;
 }
 
-.footer {
-  display: flex;
-  margin: 0 16px;
-}
+// .footer {
+//   display: flex;
+//   margin: 0 16px;
+// }
 
 .home-page__quotes-section {
   display: flex;
   flex-direction: column;
-  margin: 0 16px;
+  margin: 30px 16px;
   background-color: lightgray;
+}
+
+.home-page__quotes-container {
+  margin: 0 16px;
+}
+
+.home-page__quotes-title {
+  margin: 5px;
 }
 
 .home-page__quote-img {
@@ -62,12 +72,12 @@
 
 .accordion {
   margin: 0;
-  display: flex;
+  display: block;
+  transition: 3s;
   flex-direction: column;
   padding: 0 16px;
   background-color: white;
   border-bottom: 1px solid gray;
-  //border-radius: 4px;
   box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
 }
 

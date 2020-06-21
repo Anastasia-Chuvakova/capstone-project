@@ -1,9 +1,11 @@
 import React from "react";
+import Toffee from "../assets/Toffee.jpg";
 
 export default function Header() {
   return (
-    <div>
-      <h2>Toffee Time</h2>
+    <div className="header-item__wrapper">
+      <img className="header-icon" src={Toffee} alt="logo" />
+      <h2 className="header-title">Toffee Time</h2>
     </div>
   );
 }

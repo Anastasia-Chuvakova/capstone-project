@@ -1,5 +1,13 @@
 .header-item__wrapper {
   display: flex;
-  background-color: #ffefd7;
+  background-color: #3d3932;
   align-items: center;
+  //justify-content: space-evenly;
+}
+.header-icon {
+  height: 50px;
+  margin-right: 16px;
+}
+.header-title {
+  color: hsla(12, 73%, 65%, 0.904);
 }

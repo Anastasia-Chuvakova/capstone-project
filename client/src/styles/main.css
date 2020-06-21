@@ -1,4 +1,18 @@
-.home-page__title {
+.home-page__greeting {
+  margin: 30px 16px;
+}
+
+.home-page__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home-page__accordion-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,13 +60,6 @@
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-.footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 16px;
-}
-
 .home-page__quotes-section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,8 +68,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0 16px;
+  margin: 30px 16px;
   background-color: lightgray;
+}
+
+.home-page__quotes-container {
+  margin: 0 16px;
+}
+
+.home-page__quotes-title {
+  margin: 5px;
 }
 
 .home-page__quote-img {
@@ -79,9 +94,9 @@
 
 .accordion {
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
+  -webkit-transition: 3s;
+  transition: 3s;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -102,10 +117,19 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #ffefd7;
+  background-color: #3d3932;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.header-icon {
+  height: 50px;
+  margin-right: 16px;
+}
+
+.header-title {
+  color: rgba(231, 127, 101, 0.904);
 }
 
 a {
