@@ -1,7 +1,11 @@
-//@import "../main.scss";
-
 .home-page__greeting {
   margin: 30px 16px;
+  @include tablet-breakpoint {
+    margin: 30px 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 40px 180px;
+  }
 }
 .home-page__container {
   display: flex;
@@ -10,7 +14,13 @@
 .home-page__accordion-title {
   display: flex;
   margin: 0 16px;
-  background-color: lightgray;
+  background-color: rgb(228, 217, 217);
+  @include tablet-breakpoint {
+    margin: 0 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 20px;
+  }
 }
 
 .home-page__timer-wrapper {
@@ -18,44 +28,73 @@
   flex-direction: column;
   margin: 0 16px;
   justify-content: space-evenly;
-  background-color: lightgray;
+  background-color: rgb(228, 217, 217);
+  @include tablet-breakpoint {
+    margin: 0 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 0 180px;
+  }
 }
 
-.timer-option {
+.timer-option__button {
   display: flex;
+  text-transform: uppercase;
   width: 100%;
   margin: 8px 0;
   justify-content: center;
   padding: 5px;
-  background-color: #87a4f9;
+  background-color: hsl(9, 57%, 61%);
   color: white;
   border-color: transparent;
   border-radius: 4px;
   box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
-  //font-family: $font-main;
+  @include tablet-breakpoint {
+    width: 120px;
+    padding: 10px;
+    margin-left: 80%;
+  }
 }
 
 .timer-option__description {
-  background-color: #f1f1f1;
+  background-color: rgb(252, 238, 238);
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  //z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(235, 213, 213, 0.2);
 }
 
-// .footer {
-//   display: flex;
-//   margin: 0 16px;
-// }
+.home-page__text {
+  margin: 30px 16px 16px 16px;
+  @include tablet-breakpoint {
+    margin: 30px 24px 24px 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 40px 180px;
+  }
+}
 
 .home-page__quotes-section {
   display: flex;
   flex-direction: column;
-  margin: 30px 16px;
-  background-color: lightgray;
+  margin: 0 16px 30px 16px;
+  background-color: rgb(228, 217, 217);
+  @include tablet-breakpoint {
+    margin: 0 24px 30px 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 40px 180px;
+  }
 }
 
 .home-page__quotes-container {
   margin: 0 16px;
+  display: flex;
+  flex-direction: column;
+  @include tablet-breakpoint {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 24px;
+  }
 }
 
 .home-page__quotes-title {
@@ -68,8 +107,17 @@
   width: 100%;
   border-radius: 4px;
   box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+  @include tablet-breakpoint {
+    width: 270px;
+    margin-bottom: 16px;
+  }
 }
 
+.home-page__quote-author {
+  @include tablet-breakpoint {
+    width: 250px;
+  }
+}
 .accordion {
   margin: 0;
   display: block;
@@ -83,6 +131,5 @@
 
 .home-page__accordion-sub {
   padding-bottom: 10px;
-
   border-bottom: 1px solid lightgray;
 }

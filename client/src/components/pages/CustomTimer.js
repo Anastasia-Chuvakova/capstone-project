@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Tasks from "../Tasks";
 
 const CustomTimer = (props) => {
   console.log("Custom timer rendered");
@@ -12,6 +13,12 @@ const CustomTimer = (props) => {
 
   return (
     <div>
+      <h2 className="paragraph">
+        Default settings: "Total Hours Left" countdown for the whole working
+        day; "Work Session" session for the major tasks; "Toffee Time" session
+        for the break time, or perhaps, play time with your pet! Watch for tub
+        session updates (tablet and computer only)
+      </h2>
       <h1>Custom Timer</h1>
 
       <form onSubmit={handleTimerFormSubmit}>
@@ -26,12 +33,18 @@ const CustomTimer = (props) => {
 
         <button type="submit">Set time</button>
       </form>
-      <button onClick={() => props.startTimer("custom")}>Start timer</button>
+      <button
+        className="timer__button-start"
+        onClick={() => props.startTimer("custom")}
+      >
+        Start timer
+      </button>
       <div>
         <Link to={"/endrecord"}>
-          <button>finish early</button>
+          <button className="timer__button-finish">finish</button>
         </Link>
       </div>
+      <Tasks />
     </div>
   );
 };

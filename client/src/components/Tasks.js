@@ -1,18 +1,53 @@
 import React, { Component } from "react";
+import TodoItems from "./TodoItems";
 
 export default class Tasks extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items: [],
+    };
+
+    this.addItem = this.addItem.bind(this);
+  }
+  addItem(e) {
+    if (this._inputElement.value !== "") {
+      var newItem = {
+        text: this._inputElement.value,
+        key: Date.now(),
+      };
+
+      this.setState((prevState) => {
+        return {
+          items: prevState.items.concat(newItem),
+        };
+      });
+
+      this._inputElement.value = "";
+    }
+
+    console.log(this.state.items);
+
+    e.preventDefault();
+  }
   render() {
     return (
-      <div>
-        <h1>Tasks to do:</h1>
-        <p>to do number 1</p>
-         <p>to do number 2</p>
-          <p>to do number 3</p>
-           <p>to do number 4</p>
-            <p>to do number 5</p>
-             <p>to do number 6</p>
-              <p>to do number 7</p>
+      <div className="tasks-list__container">
+        <div className="task-list__input-area">
+          <form onSubmit={this.addItem}>
+            <input
+              className="tasks-list__input"
+              ref={(a) => (this._inputElement = a)}
+              placeholder="enter task"
+            ></input>
 
+            <button className="tasks-list__button" type="submit">
+              add
+            </button>
+          </form>
+        </div>
+        <TodoItems entries={this.state.items} />
       </div>
     );
   }

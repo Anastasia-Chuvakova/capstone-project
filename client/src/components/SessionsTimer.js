@@ -72,18 +72,9 @@ class SessionsTimer extends Component {
               return obj.currentSession === typeOfTimer;
             });
 
-            //console.log("TIMER ON INTERVAL CHANGE ", timer);
-            // this.setState({
-            //   count: timer.count - 1,
-            // });
-            // this.setState({
-            //   timersData: update(this.state.timersData, {
-            //     0: { count: { $set: timer.count - 1 } },
-            //   }),
-            // });
-
             //count down current timer
             this.state.timersData[0].count = this.state.timersData[0].count - 1;
+            document.title = "WORK🧠";
             this.forceUpdate();
 
             //count down day timer
@@ -99,6 +90,7 @@ class SessionsTimer extends Component {
 
               this.state.timersData[0].count = this.state.timersData[0].breakTime;
               this.state.timersData[0].currentTimer = "Toffee Time!";
+              document.title = "TOFFEE🍬";
               this.forceUpdate();
             } else if (
               timer[0].count <= 0 &&
@@ -108,6 +100,7 @@ class SessionsTimer extends Component {
 
               this.state.timersData[0].count = this.state.timersData[0].workTime;
               this.state.timersData[0].currentTimer = "Work Session";
+              document.title = "WORK🧠";
               this.forceUpdate();
             }
           }, 1000);
@@ -174,8 +167,6 @@ class SessionsTimer extends Component {
   render() {
     return (
       <>
-        <h1>Timer App</h1>
-
         <Router>
           <Switch>
             <Route

@@ -1,0 +1,71 @@
+@import "./mixins";
+
+// breakpoints
+$tablet: 768px;
+$desk: 1440px;
+
+a {
+  text-decoration: none !important;
+  color: #323232;
+}
+$font-main: "Courier New";
+
+/*
+    BASE
+  */
+html,
+body {
+  margin: 0;
+  font-family: $font-main; // sets default text font for entire project
+  color: 333230; // sets default text color for entire project
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+@function px-to-rem($px) {
+  @return ($px / 16) + rem;
+}
+
+//h1
+
+.main-title {
+  font-size: px-to-rem(24);
+  line-height: px-to-rem(32);
+}
+//h2
+
+.subheader {
+  font-size: px-to-rem(16);
+  line-height: px-to-rem(22);
+}
+.paragraph {
+  // margin: 0;
+  font-size: px-to-rem(14);
+  line-height: px-to-rem(18);
+}
+
+@include tablet-breakpoint {
+  .main-title {
+    font-size: px-to-rem(26);
+    line-height: px-to-rem(32);
+  }
+  //h2
+
+  .subheader {
+    font-size: px-to-rem(18);
+    line-height: px-to-rem(22);
+  }
+  .paragraph {
+    // margin: 0;
+    font-size: px-to-rem(17);
+    line-height: px-to-rem(18);
+  }
+}

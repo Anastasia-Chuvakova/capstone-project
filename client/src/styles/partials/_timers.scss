@@ -1,8 +1,73 @@
-.session-timer__work {
-  color: red;
-}
 .session-timer__eyes-break {
   &--hidden {
     display: none;
+  }
+}
+.timers-page__container {
+  @include desktop-breakpoint {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 40px 180px;
+  }
+}
+.timers-display__wrapper {
+  padding: 0 8px;
+  margin: 16px;
+  border: 1px solid lightgray;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  @include desktop-breakpoint {
+    width: 40%;
+  }
+}
+.timers-display__count {
+  border-bottom: 1px solid lightgray;
+  padding-left: 0;
+}
+
+.timers-buttons__wrapper {
+  margin: 0 16px;
+  padding: 16px 0;
+  @include tablet-breakpoint {
+    display: flex;
+    flex-direction: row;
+    width: 420px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+.timer__button-start {
+  display: flex;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 8px 0;
+  justify-content: center;
+  padding: 5px;
+  background-color: hsl(9, 57%, 61%);
+  color: white;
+  border-color: transparent;
+  border-radius: 4px;
+  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+  @include tablet-breakpoint {
+    width: 120px;
+    padding: 10px;
+  }
+}
+
+.timer__button-finish {
+  display: flex;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 8px 0;
+  justify-content: center;
+  padding: 5px;
+  background-color: white;
+  color: hsl(9, 57%, 61%);
+  border-color: transparent;
+  border-radius: 4px;
+  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+  @include tablet-breakpoint {
+    width: 120px;
+    padding: 10px;
+    margin: 0 16px;
   }
 }
