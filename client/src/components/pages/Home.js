@@ -135,7 +135,7 @@ export default class Home extends Component {
                       breaks. Task List included. Tablet and computer tub
                       session update included.
                     </p>
-                    <Link to={"/sessionstimer/customtimer"}>
+                    <Link to={"/sessionstimer/custom"}>
                       <button className="timer-option__button">
                         set timer
                       </button>

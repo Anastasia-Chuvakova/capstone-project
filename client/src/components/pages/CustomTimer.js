@@ -1,53 +1,156 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import Tasks from "../Tasks";
+import moment from "moment";
 
-const CustomTimer = (props) => {
-  console.log("Custom timer rendered");
+class CustomTimer extends Component {
+  // constructor(props) {
+  //   super(props);
+  // }
 
-  const handleTimerFormSubmit = (event) => {
+  handleTimerFormSubmit = (event) => {
     event.preventDefault();
-    props.setCustomTimer(event.target.work_timer.value);
-    props.setCustomTimer(event.target.break_timer.value);
+    console.log("HandleTimerFormSubmit");
+    this.props.setCustomTimer(
+      event.target.day_count.value,
+      event.target.work_timer.value,
+      event.target.break_timer.value
+    );
   };
 
-  return (
-    <div>
-      <h2 className="paragraph">
-        Default settings: "Total Hours Left" countdown for the whole working
-        day; "Work Session" session for the major tasks; "Toffee Time" session
-        for the break time, or perhaps, play time with your pet! Watch for tub
-        session updates (tablet and computer only)
-      </h2>
-      <h1>Custom Timer</h1>
+  // DefaultTimer = (props) => {
+  //   console.log("Default timer rendered");
+  // };
 
-      <form onSubmit={handleTimerFormSubmit}>
-        <div>
-          {props.workTimerCount}, {props.currentTimer};
-          <input type="number" name="work_timer" />
-        </div>
-        <div>
-          {props.breakTimerCount}, {props.breakTimer};
-          <input type="number" name="break_timer" />
-        </div>
+  render() {
+    return (
+      <div className="timers-page__container">
+        <div className="timers-display__wrapper">
+          <div className="timers-display__count">
+            <h2 className="paragraph">
+              Default settings: "Total Hours Left" countdown for the whole
+              working day; "Work Session" session for the major tasks; "Toffee
+              Time" session for the break time, or perhaps, play time with your
+              pet! Watch for tub session updates (tablet and computer only)
+            </h2>
+            <h1>Custom Timer</h1>
+            <p>
+              Total hours left:
+              {moment
+                .utc(this.props.timersData[0].dayCount * 1000)
+                .format("HH:mm:ss")}
+            </p>
+            <p>Current Session: {this.props.timersData[0].currentTimer}</p>
+            <p>
+              {moment
+                .utc(this.props.timersData[0].count * 1000)
+                .format("mm:ss")}
+            </p>
+            <form onSubmit={this.handleTimerFormSubmit}>
+              <input
+                type="text"
+                name="day_count"
+                placeholder="Total Work Duration"
+              />
 
-        <button type="submit">Set time</button>
-      </form>
-      <button
-        className="timer__button-start"
-        onClick={() => props.startTimer("custom")}
-      >
-        Start timer
-      </button>
-      <div>
-        <Link to={"/endrecord"}>
-          <button className="timer__button-finish">finish</button>
-        </Link>
+              <input
+                type="text"
+                name="work_timer"
+                placeholder="Work Session Duration"
+              />
+              <input
+                type="text"
+                name="break_timer"
+                placeholder="Break Time Duration"
+              />
+              <button type="submit">Set time</button>
+            </form>
+          </div>
+
+          <div className="timers-buttons__wrapper" id="switching-buttons">
+            <button
+              type="button"
+              className="timer__button-start"
+              onClick={() => {
+                this.props.startTimer("custom");
+              }}
+            >
+              {this.props.timersData[0].timerActive
+                ? "Pause Timer"
+                : "Start Timer"}
+            </button>
+            <div>
+              <button
+                className="timer__button-finish"
+                onClick={this.props.finishEarly}
+              >
+                finish
+              </button>
+            </div>
+          </div>
+        </div>
+        <Tasks />
       </div>
-      <Tasks />
-    </div>
-  );
-};
+    );
+  }
+}
+
+///////////////
+
+//   return (
+//     <div>
+//       <h2 className="paragraph">
+//         Default settings: "Total Hours Left" countdown for the whole working
+//         day; "Work Session" session for the major tasks; "Toffee Time" session
+//         for the break time, or perhaps, play time with your pet! Watch for tub
+//         session updates (tablet and computer only)
+//       </h2>
+//       <h1>Custom Timer</h1>
+
+//       <form onSubmit={handleTimerFormSubmit}>
+//         <div>
+//           {props.workTimerCount}, {props.currentTimer};
+//           <input type="number" name="day_timer">
+//             <p>
+//               {moment
+//                 .utc(this.props.timersData[0].dayCount * 1000)
+//                 .format("HH:mm:ss")}
+//             </p>
+//           </input>
+//           <input type="number" name="work_timer">
+//             <p>
+//               {moment
+//                 .utc(this.props.timersData[0].workTime * 1000)
+//                 .format("mm:ss")}
+//             </p>
+//           </input>
+//         </div>
+//         <div>
+//           <input type="number" name="work_timer">
+//             <p>
+//               {moment
+//                 .utc(this.props.timersData[0].breakTime * 1000)
+//                 .format("mm:ss")}
+//             </p>
+//           </input>
+//         </div>
+//         <button type="submit">Set time</button>
+//       </form>
+//       <button
+//         className="timer__button-start"
+//         onClick={() => props.startTimer("custom")}
+//       >
+//         Start timer
+//       </button>
+//       <div>
+//         <Link to={"/endrecord"}>
+//           <button className="timer__button-finish">finish</button>
+//         </Link>
+//       </div>
+//       <Tasks />
+//     </div>
+//   );
+// };
 
 export default CustomTimer;
 

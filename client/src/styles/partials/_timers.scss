@@ -30,7 +30,7 @@
   @include tablet-breakpoint {
     display: flex;
     flex-direction: row;
-    width: 420px;
+    width: 100%;
     justify-content: flex-end;
     align-items: center;
   }
@@ -50,6 +50,32 @@
   @include tablet-breakpoint {
     width: 120px;
     padding: 10px;
+  }
+}
+.timer__button-pause {
+  display: none;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 8px 0;
+  justify-content: center;
+  padding: 5px;
+  background-color: hsl(9, 57%, 61%);
+  color: white;
+  border-color: transparent;
+  border-radius: 4px;
+  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+  @include tablet-breakpoint {
+    width: 120px;
+    padding: 10px;
+  }
+}
+
+#switching-buttons.buttons__switch--active {
+  button.timer__button-pause {
+    display: flex;
+  }
+  button.timer__button-start {
+    display: none;
   }
 }
 

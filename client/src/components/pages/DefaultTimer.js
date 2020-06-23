@@ -6,16 +6,12 @@ import moment from "moment";
 
 class DefaultTimer extends Component {
   // constructor(props) {
-  // super(props);
-  //}
-  // state = {
-  //   active: false,
-  // };
+  //   super(props);
+  // }
 
   DefaultTimer = (props) => {
     console.log("Default timer rendered");
   };
-  // componentDidMount() {}
 
   render() {
     return (
@@ -32,33 +28,30 @@ class DefaultTimer extends Component {
             <p>
               {moment
                 .utc(this.props.timersData[0].dayTime * 1000)
-                .format("hh:mm:ss")}
+                .format("HH:mm:ss")}
             </p>
 
-            <p>{this.props.timersData[0].currentTimer}</p>
+            <p>{this.props.currentTimer}</p>
             <p>
               {moment
                 .utc(this.props.timersData[0].count * 1000)
                 .format("mm:ss")}
             </p>
-            {/* moment.utc(count * 1000).format("mm:ss") */}
           </div>
-          <div className="timers-buttons__wrapper">
+          <div className="timers-buttons__wrapper" id="switching-buttons">
             <button
+              type="button"
               className="timer__button-start"
-              onClick={() => this.props.startTimer("default")}
+              onClick={() => {
+                this.props.startTimer("default");
+              }}
             >
-              Start timer
+              {this.props.timersData[0].timerActive
+                ? "Pause Timer"
+                : "Start Timer"}
             </button>
             <div>
-              <Link
-                to={
-                  "/endrecord" +
-                  "?" +
-                  "hoursworked=" +
-                  this.props.timersData[0].count
-                }
-              >
+              <Link to={"/endrecord"}>
                 <button className="timer__button-finish">finish</button>
               </Link>
             </div>

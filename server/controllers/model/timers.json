@@ -8,7 +8,7 @@
     "count": "0",
     "currentSession": "initial",
     "currentTimer": "",
-    "timerActive": "false"
+    "timerActive": false
   },
   {
     "id": "1pojd",
@@ -19,41 +19,39 @@
     "count": "5",
     "currentSession": "default",
     "currentTimer": "Work Session",
-    "timerActive": "false"
+    "timerActive": false
   },
   {
     "id": "2pojd",
-    "workTime": "25",
-    "breakTime": "7",
-    "dayTime": "30",
-    "dayCount": "30",
+    "workTime": "1500",
+    "breakTime": "300",
+    "dayTime": "28800",
+    "dayCount": "28800",
     "currentSession": "pomodoro",
-    "count": "25",
+    "count": "1500",
     "currentTimer": "Work Session",
-    "timerActive": "false"
+    "timerActive": false
   },
   {
     "id": "3pojd",
-    "workTime": "15",
-    "breakTime": "17",
-    "dayTime": "30",
-    "dayCount": "30",
+    "workTime": "3120",
+    "breakTime": "1020",
+    "dayTime": "28800",
+    "dayCount": "28800",
     "currentSession": "52 17 rule",
-    "count": "15",
+    "count": "3120",
     "currentTimer": "Work Session",
-    "timerActive": "false"
+    "timerActive": false
   },
   {
     "id": "4pojd",
-    "workTime": "10",
-    "breakTime": "10",
+    "workTime": "5",
+    "breakTime": "3",
     "dayTime": "30",
     "dayCount": "30",
+    "count": "5",
     "currentSession": "custom",
-    "customWorkCount": "10",
-    "customBreakCount": "10",
-    "breakTimer": "Toffee Time!",
     "currentTimer": "Work Session",
-    "timerActive": "false"
+    "timerActive": false
   }
 ]

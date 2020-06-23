@@ -14,7 +14,7 @@ export default class App extends Component {
             <Route path="/" component={Home} exact />
             <Route path="/sessionstimer/" component={SessionsTimer} />
             <Route path="/sessionstimer/:id" component={SessionsTimer} />
-            <Route path="/endrecord" component={EndRecord} exact />
+            <Route path="/endrecord" component={EndRecord} />
           </Switch>
         </Router>
       </div>

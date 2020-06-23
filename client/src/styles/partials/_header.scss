@@ -5,7 +5,7 @@
   background-color: rgb(77, 30, 30);
   align-items: center;
   width: 100%;
-  height: 60px;
+  max-height: 40px;
   padding-top: 8px;
   padding-bottom: 8px;
   //   @include desktop-breakpoint {
@@ -14,13 +14,15 @@
 }
 .header-item__icon-title {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-right: 50px;
+  width: 100%;
 }
 .header-icon {
-  height: 50px;
   display: flex;
-  margin: 0 8px;
+  height: 40px;
+  display: flex;
+  margin: 8px 8px;
 }
 .header-title {
   color: #d47463;
@@ -31,6 +33,8 @@
 .header-timers__wrapper {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  width: 310px;
   @include tablet-breakpoint {
     flex-direction: row;
   }
@@ -42,7 +46,7 @@
 }
 .header-timer {
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   margin: 0;
   padding-right: 8px;
   font-weight: bold;

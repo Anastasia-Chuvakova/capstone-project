@@ -18,6 +18,7 @@ body {
   margin: 0;
   font-family: $font-main; // sets default text font for entire project
   color: 333230; // sets default text color for entire project
+  word-break: break-word;
 }
 
 ul {

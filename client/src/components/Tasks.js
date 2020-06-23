@@ -35,11 +35,12 @@ export default class Tasks extends Component {
     return (
       <div className="tasks-list__container">
         <div className="task-list__input-area">
+          <h1 className="tasks-list__header header">Task List</h1>
           <form onSubmit={this.addItem}>
             <input
               className="tasks-list__input"
               ref={(a) => (this._inputElement = a)}
-              placeholder="enter task"
+              placeholder="enter tasks"
             ></input>
 
             <button className="tasks-list__button" type="submit">
