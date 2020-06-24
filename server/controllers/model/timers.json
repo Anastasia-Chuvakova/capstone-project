@@ -8,7 +8,11 @@
     "count": "0",
     "currentSession": "initial",
     "currentTimer": "",
-    "timerActive": false
+    "timerActive": false,
+    "workLength": "0",
+    "breakLength": "0",
+    "workCount": "0",
+    "breakCount": "0"
   },
   {
     "id": "1pojd",
@@ -19,7 +23,11 @@
     "count": "5",
     "currentSession": "default",
     "currentTimer": "Work Session",
-    "timerActive": false
+    "timerActive": false,
+    "workLength": "0",
+    "breakLength": "0",
+    "workCount": "0",
+    "breakCount": "0"
   },
   {
     "id": "2pojd",
@@ -30,7 +38,11 @@
     "currentSession": "pomodoro",
     "count": "1500",
     "currentTimer": "Work Session",
-    "timerActive": false
+    "timerActive": false,
+    "workLength": "0",
+    "breakLength": "0",
+    "workCount": "0",
+    "breakCount": "0"
   },
   {
     "id": "3pojd",
@@ -41,7 +53,11 @@
     "currentSession": "52 17 rule",
     "count": "3120",
     "currentTimer": "Work Session",
-    "timerActive": false
+    "timerActive": false,
+    "workLength": "0",
+    "breakLength": "0",
+    "workCount": "0",
+    "breakCount": "0"
   },
   {
     "id": "4pojd",
@@ -52,6 +68,10 @@
     "count": "5",
     "currentSession": "custom",
     "currentTimer": "Work Session",
-    "timerActive": false
+    "timerActive": false,
+    "workLength": "0",
+    "breakLength": "0",
+    "workCount": "0",
+    "breakCount": "0"
   }
 ]

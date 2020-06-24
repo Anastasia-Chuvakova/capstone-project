@@ -24,12 +24,15 @@ class RuleTimer extends Component {
             </h2>
             <h1>52 17 Rule Timer</h1>
             <p>
+              Total left:{" "}
               {moment
                 .utc(this.props.timersData[0].dayTime * 1000)
                 .format("hh:mm:ss")}
             </p>
 
-            <p>{this.props.currentTimer}</p>
+            <p className="timers-page__session">
+              Current Session: {this.props.timersData[0].currentTimer}
+            </p>
             <p>
               {moment
                 .utc(this.props.timersData[0].count * 1000)
@@ -49,9 +52,21 @@ class RuleTimer extends Component {
                 : "Start Timer"}
             </button>
             <div>
-              <Link to={"/endrecord"}>
-                <button className="timer__button-finish">finish</button>
-              </Link>
+              <button
+                className="timer__button-finish"
+                onClick={() => {
+                  this.props.finishAll(
+                    this.props.timersData[0].dayTime,
+                    this.props.timersData[0].dayCount,
+                    this.props.timersData[0].workCount,
+                    this.props.timersData[0].breakCount,
+                    this.props.timersData[0].workLength,
+                    this.props.timersData[0].breakLength
+                  );
+                }}
+              >
+                finish
+              </button>
             </div>
           </div>
         </div>

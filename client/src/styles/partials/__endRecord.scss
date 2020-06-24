@@ -1,0 +1,41 @@
+.endrecord-page__container {
+  margin: 40px 16px;
+  @include tablet-breakpoint {
+    margin: 40px 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 40px 180px;
+  }
+}
+
+.endrecord-page__wrapper {
+  padding: 8px 8px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+}
+
+.endrecord-page__button-wrapper {
+  @include tablet-breakpoint {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.endrecord-page__button {
+  display: flex;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 8px 0;
+  justify-content: center;
+  padding: 5px;
+  background-color: hsl(9, 57%, 61%);
+  color: white;
+  border-color: transparent;
+  border-radius: 4px;
+  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+  @include tablet-breakpoint {
+    width: 120px;
+    padding: 10px;
+    margin: 8px 8px;
+  }
+}

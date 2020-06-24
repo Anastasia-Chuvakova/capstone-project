@@ -11,6 +11,8 @@
   }
 }
 .timers-display__wrapper {
+  background-color: white;
+  border-radius: 10px;
   padding: 0 8px;
   margin: 16px;
   border: 1px solid lightgray;
@@ -25,7 +27,6 @@
 }
 
 .timers-buttons__wrapper {
-  margin: 0 16px;
   padding: 16px 0;
   @include tablet-breakpoint {
     display: flex;
@@ -96,4 +97,51 @@
     padding: 10px;
     margin: 0 16px;
   }
+}
+p.timers-page__session {
+  color: red;
+}
+
+.custom-timer__input {
+  border-radius: 4px;
+  margin: 4px 0 4px 4px;
+  padding: 4px 4px;
+  border: 1px solid #c9a6a6;
+  max-width: 80%;
+  border-radius: 4px;
+}
+.custom-timer__wrapper {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  justify-content: flex-start;
+  @include tablet-breakpoint {
+    flex-direction: column;
+    width: 300px;
+  }
+}
+
+.custom-timer__button__wrapper {
+  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  @include tablet-breakpoint {
+    margin: 4px 0 0 8px;
+  }
+}
+.custom-timer__set-button {
+  display: block;
+  margin-right: 2px;
+  padding: 7px;
+  background-color: #4d1e1e;
+  color: rgba(231, 127, 101, 0.904);
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 4px;
+  border-color: transparent;
+  box-shadow: 0px 3px 7px 0px #665866;
+}
+
+.custom-timer__hidden {
+  display: none;
 }

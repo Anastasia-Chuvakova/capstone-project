@@ -20,6 +20,10 @@ class SessionsTimer extends Component {
         currentSession: "",
         currentTimer: "",
         timerActive: "",
+        workLength: "0",
+        breakLength: "0",
+        workCount: "0",
+        breakCount: "0",
       },
     ],
   };
@@ -30,8 +34,29 @@ class SessionsTimer extends Component {
     this.populateData();
   }
 
-  finishEarly = () => {
-    this.props.history.push(`/endrecord`);
+  finishAll = (
+    dayTime,
+    dayCount,
+    workCount,
+    breakCount,
+    workLength,
+    breakLength
+  ) => {
+    this.stopTimer();
+    let timeWorked = (dayCount - dayTime) * -1;
+    //let workSessionLength = ()
+    this.props.history.push(
+      `/endrecord?timeworked=` +
+        timeWorked +
+        "&workcount=" +
+        workCount +
+        "&breakcount=" +
+        breakCount +
+        "&worklength=" +
+        workLength +
+        "&breaklength=" +
+        breakLength
+    );
   };
 
   populateData = () => {
@@ -50,13 +75,13 @@ class SessionsTimer extends Component {
 
     console.log("INFO ABOUT TIMERS : ", this.state);
   };
-  componentDidUpdate() {
-    // console.log("App componentDidUpdate");
-  }
-
-  // componentWillUnmount() {
-  //   //console.log("App componentWillUnmount");
+  // componentDidUpdate() {
+  //   // console.log("App componentDidUpdate");
   // }
+
+  // // componentWillUnmount() {
+  // //   //console.log("App componentWillUnmount");
+  // // }
 
   startTimer = (typeOfTimer) => {
     console.log(typeOfTimer);
@@ -64,8 +89,12 @@ class SessionsTimer extends Component {
       return obj.currentSession === typeOfTimer;
     });
     timer[0].currentSession = typeOfTimer;
+
     this.setState({ timersData: timer });
     if (!this.state.timersData[0].timerActive) {
+      //increment work session by 1 before the interval
+      timer[0].workCount++;
+      document.title = "WORK🧠";
       this.timeInterval = setInterval(() => {
         //set timerActive to true
         timer = this.state.timersData;
@@ -73,7 +102,11 @@ class SessionsTimer extends Component {
 
         //count down current timer
         timer[0].count -= 1;
-        document.title = "WORK🧠";
+        if (timer[0].currentTimer === "Work Session") {
+          timer[0].workLength++;
+        } else if (timer[0].currentTimer === "Toffee Time!") {
+          timer[0].breakLength++;
+        }
 
         //count down day timer
         timer[0].dayCount -= 1;
@@ -90,6 +123,7 @@ class SessionsTimer extends Component {
 
           timer[0].count = timer[0].breakTime;
           timer[0].currentTimer = "Toffee Time!";
+          timer[0].breakCount++;
           this.setState({ timersData: timer });
           document.title = "TOFFEE🍬";
         } else if (
@@ -97,7 +131,7 @@ class SessionsTimer extends Component {
           timer[0].currentTimer === "Toffee Time!"
         ) {
           console.log("time to get back to work");
-
+          timer[0].workCount++;
           timer[0].count = timer[0].workTime;
           timer[0].currentTimer = "Work Session";
           this.setState({ timersData: timer });
@@ -126,14 +160,6 @@ class SessionsTimer extends Component {
   };
 
   setCustomTimer = (dayCount, workTime, breakTime) => {
-    // this.setState({
-    //   workTimerCount: workTime,
-    //   currentSession: "custom",
-    //   dayTimerCount: dayCount,
-    //   currentTimer: "Work Session",
-    //   breakTimerCount: breakTime,
-    //   breakTimer: "Toffee Time!",
-    // });
     let timer = this.state.timersData.filter(function (obj, index) {
       return obj.currentSession === "custom";
     });
@@ -196,7 +222,7 @@ class SessionsTimer extends Component {
                   timerActive={this.state.timerActive}
                   stopTimer={this.stopTimer}
                   timersData={this.state.timersData}
-                  finishEarly={this.finishEarly}
+                  finishAll={this.finishAll}
                 />
               )}
               exact
@@ -210,7 +236,7 @@ class SessionsTimer extends Component {
                   timerActive={this.state.timerActive}
                   stopTimer={this.stopTimer}
                   timersData={this.state.timersData}
-                  finishEarly={this.finishEarly}
+                  finishAll={this.finishAll}
                 />
               )}
               exact
@@ -224,7 +250,7 @@ class SessionsTimer extends Component {
                   timerActive={this.state.timerActive}
                   stopTimer={this.stopTimer}
                   timersData={this.state.timersData}
-                  finishEarly={this.finishEarly}
+                  finishAll={this.finishAll}
                 />
               )}
               exact
@@ -239,7 +265,7 @@ class SessionsTimer extends Component {
                   stopTimer={this.stopTimer}
                   timersData={this.state.timersData}
                   setCustomTimer={this.setCustomTimer}
-                  finishEarly={this.finishEarly}
+                  finishAll={this.finishAll}
                 />
               )}
               exact

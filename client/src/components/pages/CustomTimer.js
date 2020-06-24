@@ -4,10 +4,6 @@ import Tasks from "../Tasks";
 import moment from "moment";
 
 class CustomTimer extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   handleTimerFormSubmit = (event) => {
     event.preventDefault();
     console.log("HandleTimerFormSubmit");
@@ -16,12 +12,12 @@ class CustomTimer extends Component {
       event.target.work_timer.value,
       event.target.break_timer.value
     );
+    this.hideTimer();
   };
-
-  // DefaultTimer = (props) => {
-  //   console.log("Default timer rendered");
-  // };
-
+  hideTimer = () => {
+    let toggleElem = document.getElementById("custom-timer__active");
+    toggleElem.classList.toggle("custom-timer__hidden");
+  };
   render() {
     return (
       <div className="timers-page__container">
@@ -35,35 +31,50 @@ class CustomTimer extends Component {
             </h2>
             <h1>Custom Timer</h1>
             <p>
-              Total hours left:
+              Total left:{" "}
               {moment
                 .utc(this.props.timersData[0].dayCount * 1000)
                 .format("HH:mm:ss")}
             </p>
-            <p>Current Session: {this.props.timersData[0].currentTimer}</p>
+            <p className="timers-page__session">
+              Current Session: {this.props.timersData[0].currentTimer}
+            </p>
             <p>
               {moment
                 .utc(this.props.timersData[0].count * 1000)
                 .format("mm:ss")}
             </p>
-            <form onSubmit={this.handleTimerFormSubmit}>
-              <input
-                type="text"
-                name="day_count"
-                placeholder="Total Work Duration"
-              />
+            <form
+              onSubmit={this.handleTimerFormSubmit}
+              className="custom-timer__wrapper"
+              id="custom-timer__active"
+            >
+              <div className="custom-timer__input-wrapper">
+                <input
+                  className="custom-timer__input"
+                  type="text"
+                  name="day_count"
+                  placeholder="Total Work Duration"
+                />
 
-              <input
-                type="text"
-                name="work_timer"
-                placeholder="Work Session Duration"
-              />
-              <input
-                type="text"
-                name="break_timer"
-                placeholder="Break Time Duration"
-              />
-              <button type="submit">Set time</button>
+                <input
+                  className="custom-timer__input"
+                  type="text"
+                  name="work_timer"
+                  placeholder="Work Session Duration"
+                />
+                <input
+                  className="custom-timer__input"
+                  type="text"
+                  name="break_timer"
+                  placeholder="Break Time Duration"
+                />
+              </div>
+              <div className="custom-timer__button__wrapper">
+                <button className="custom-timer__set-button" type="submit">
+                  Set time
+                </button>
+              </div>
             </form>
           </div>
 
@@ -82,7 +93,16 @@ class CustomTimer extends Component {
             <div>
               <button
                 className="timer__button-finish"
-                onClick={this.props.finishEarly}
+                onClick={() => {
+                  this.props.finishAll(
+                    this.props.timersData[0].dayTime,
+                    this.props.timersData[0].dayCount,
+                    this.props.timersData[0].workCount,
+                    this.props.timersData[0].breakCount,
+                    this.props.timersData[0].workLength,
+                    this.props.timersData[0].breakLength
+                  );
+                }}
               >
                 finish
               </button>
