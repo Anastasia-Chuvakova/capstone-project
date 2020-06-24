@@ -5,10 +5,6 @@ import Tasks from "../Tasks";
 import moment from "moment";
 
 class DefaultTimer extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   DefaultTimer = (props) => {
     console.log("Default timer rendered");
   };

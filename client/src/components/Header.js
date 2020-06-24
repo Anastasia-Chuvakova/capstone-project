@@ -3,19 +3,8 @@ import ToffeeIcon from "../assets/ToffeeIcon.png";
 import { NavLink } from "react-router-dom";
 
 class Header extends Component {
-  // state = {
-  //   textDisplay: false,
-  // };
-
-  //   ToggleButton(){
-  //     this.setState((currentState) => ({
-  //         textDisplay: !currentState.textDisplay,
-  //     }));
   // }
   navSwitch = () => {
-    // this.setState((currentState) => ({
-    //   textDisplay: !currentState.textDisplay,
-    // }));
     let toggleElem = document.getElementById("mobile-navbar");
     toggleElem.classList.toggle("change");
   };
@@ -39,10 +28,11 @@ class Header extends Component {
             <div className="bar3"></div>
             <div className="hide"></div>
             <li className="header-timers__mobile-list">
+              Bro
               <NavLink to="/sessionstimer/default">
                 <p className="header-timer-mobile  hide">[Default] </p>
               </NavLink>
-              <NavLink to="/sessionstimer/pomodoro">
+              <NavLink to="/sessionstimer/pomodoro" exact>
                 <p className="header-timer-mobile hide">[Pomodoro] </p>
               </NavLink>
               <NavLink to="/sessionstimer/rule-timer">

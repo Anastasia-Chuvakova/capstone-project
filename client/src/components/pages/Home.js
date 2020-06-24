@@ -24,6 +24,7 @@ export default class Home extends Component {
       });
 
     console.log("INFO NUMBER ABOUT QUOTES : ", this);
+    document.title = "Welcome";
   }
 
   render() {

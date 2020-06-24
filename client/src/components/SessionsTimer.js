@@ -75,13 +75,6 @@ class SessionsTimer extends Component {
 
     console.log("INFO ABOUT TIMERS : ", this.state);
   };
-  // componentDidUpdate() {
-  //   // console.log("App componentDidUpdate");
-  // }
-
-  // // componentWillUnmount() {
-  // //   //console.log("App componentWillUnmount");
-  // // }
 
   startTimer = (typeOfTimer) => {
     console.log(typeOfTimer);
@@ -93,7 +86,6 @@ class SessionsTimer extends Component {
     this.setState({ timersData: timer });
     if (!this.state.timersData[0].timerActive) {
       //increment work session by 1 before the interval
-      timer[0].workCount++;
       document.title = "WORK🧠";
       this.timeInterval = setInterval(() => {
         //set timerActive to true
@@ -114,7 +106,14 @@ class SessionsTimer extends Component {
 
         if (timer[0].dayCount <= 0) {
           this.stopTimer();
-          this.props.history.push(`/endrecord`);
+          this.finishAll(
+            timer[0].dayTime,
+            timer[0].dayCount,
+            timer[0].workCount,
+            timer[0].breakCount,
+            timer[0].workLength,
+            timer[0].breakLength
+          );
         } else if (
           timer[0].count <= 0 &&
           timer[0].currentTimer === "Work Session"
@@ -123,7 +122,7 @@ class SessionsTimer extends Component {
 
           timer[0].count = timer[0].breakTime;
           timer[0].currentTimer = "Toffee Time!";
-          timer[0].breakCount++;
+          timer[0].workCount++;
           this.setState({ timersData: timer });
           document.title = "TOFFEE🍬";
         } else if (
@@ -131,7 +130,7 @@ class SessionsTimer extends Component {
           timer[0].currentTimer === "Toffee Time!"
         ) {
           console.log("time to get back to work");
-          timer[0].workCount++;
+          timer[0].breakCount++;
           timer[0].count = timer[0].workTime;
           timer[0].currentTimer = "Work Session";
           this.setState({ timersData: timer });
