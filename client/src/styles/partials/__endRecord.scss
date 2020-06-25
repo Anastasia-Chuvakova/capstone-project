@@ -1,7 +1,11 @@
 .endrecord-page__container {
   margin: 40px 16px;
+
   @include tablet-breakpoint {
     margin: 40px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   @include desktop-breakpoint {
     margin: 40px 180px;
@@ -9,10 +13,12 @@
 }
 
 .endrecord-page__wrapper {
+  background-color: #e4d9d9;
   padding: 8px 8px;
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: 3px 5px 10px 0px rgba(102, 88, 102, 1);
+  // background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .endrecord-page__button-wrapper {

@@ -7,11 +7,15 @@ export default class Tasks extends Component {
 
     this.state = {
       items: [],
+      // rememberMe: false,
+      // //tasks: "",
     };
 
     this.addItem = this.addItem.bind(this);
   }
   addItem(e) {
+    e.preventDefault();
+    console.log("TASK ITEM ", this._inputElement.value);
     if (this._inputElement.value !== "") {
       var newItem = {
         text: this._inputElement.value,
@@ -27,9 +31,18 @@ export default class Tasks extends Component {
       this._inputElement.value = "";
     }
 
-    console.log(this.state.items);
-
-    e.preventDefault();
+    setTimeout(
+      function () {
+        let obj = this.state.items;
+        sessionStorage.setItem("tasks", JSON.stringify(obj));
+      }.bind(this),
+      500
+    );
+  }
+  getTasks() {
+    let tasks = sessionStorage.getItem("tasks");
+    tasks = JSON.parse(tasks);
+    console.log(tasks.name);
   }
   render() {
     return (
@@ -42,7 +55,6 @@ export default class Tasks extends Component {
               ref={(a) => (this._inputElement = a)}
               placeholder="enter tasks"
             ></input>
-
             <button className="tasks-list__button" type="submit">
               add
             </button>

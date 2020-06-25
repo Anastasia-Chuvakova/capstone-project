@@ -4,7 +4,7 @@
   border: 1px solid lightgray;
   border-radius: 6px;
   padding: 8px;
-  height: 200px;
+  max-width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   @include desktop-breakpoint {
     width: 80%;
@@ -36,6 +36,17 @@ input.tasks-list__checkbox {
   background-color: hsl(9, 57%, 61%);
 }
 
-// .tasks-List {
-//   background-color: white;
+.tasks-List {
+  background-color: white;
+}
+// #check-value.tasks-list__checkbox-hidden {
+//   input.tasks-list__checkbox {
+//     display: none;
+//   }
+//   .tasks-list__checked {
+//     display: block;
+//   }
+// }
+// .tasks-list__checked {
+//   display: none;
 // }

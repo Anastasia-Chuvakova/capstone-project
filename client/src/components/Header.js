@@ -28,7 +28,6 @@ class Header extends Component {
             <div className="bar3"></div>
             <div className="hide"></div>
             <li className="header-timers__mobile-list">
-              Bro
               <NavLink to="/sessionstimer/default">
                 <p className="header-timer-mobile  hide">[Default] </p>
               </NavLink>

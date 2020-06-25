@@ -9,6 +9,12 @@ export default class EndRecord extends Component {
     breakSessionLength: "",
     workCount: "",
     breakCount: "",
+    tasks: [
+      {
+        task: "",
+        time: "",
+      },
+    ],
   };
   componentDidMount() {
     //get query string values
@@ -29,28 +35,45 @@ export default class EndRecord extends Component {
 
     let breakCount = urlParams.get("breakcount");
     this.setState({ breakCount: breakCount });
+
+    //Get Session storage for task list
+    let tasks = sessionStorage.getItem("tasks");
+    console.log("TASKS: ", tasks);
+    this.setState({ tasks: JSON.parse(tasks) });
   }
   render() {
     return (
       <div className="endrecord-page__container">
-        <h1>Your record for the day</h1>
         <div className="endrecord-page__wrapper">
-          <h2>
+          <h1>Your record for the day</h1>
+          <h2 className="subheader">
             Hours worked:
             {moment.utc(this.state.timeWorked * 1000).format("HH:mm:ss")}
           </h2>
-          <h2>Number of work sessions: {this.state.workCount}</h2>
-          <h2>
+          <h2 className="subheader">
+            Number of work sessions: {this.state.workCount}
+          </h2>
+          <h2 className="subheader">
             Length of work sessions:
             {moment.utc(this.state.workSessionLength * 1000).format("HH:mm:ss")}
           </h2>
-          <h2>Number of break sessions: {this.state.breakCount}</h2>
-          <h2>
+          <h2 className="subheader">
+            Number of break sessions: {this.state.breakCount}
+          </h2>
+          <h2 className="subheader">
             Length of break sessions:
             {moment
               .utc(this.state.breakSessionLength * 1000)
               .format("HH:mm:ss")}
           </h2>
+          <ul className="tasks-list__container">
+            <li>
+              <h1 className="tasks-list__header header">Task List</h1>
+            </li>
+            {this.state.tasks.map((task, index) => (
+              <li className="subheader">{task.text}</li>
+            ))}
+          </ul>
           <div className="endrecord-page__button-wrapper">
             <Link to={"/"} exact>
               <button className="endrecord-page__button">go home</button>

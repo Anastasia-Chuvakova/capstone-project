@@ -521,7 +521,7 @@ h2.home-page__accordion-sub {
   border: 1px solid lightgray;
   border-radius: 6px;
   padding: 8px;
-  height: 200px;
+  max-width: 100%;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
@@ -558,6 +558,10 @@ h2.home-page__accordion-sub {
 
 input.tasks-list__checkbox {
   background-color: #d47463;
+}
+
+.tasks-List {
+  background-color: white;
 }
 
 .session-timer__eyes-break--hidden {
@@ -785,6 +789,16 @@ p.timers-page__session {
 @media screen and (min-width: 768px) {
   .endrecord-page__container {
     margin: 40px 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -795,11 +809,12 @@ p.timers-page__session {
 }
 
 .endrecord-page__wrapper {
+  background-color: #e4d9d9;
   padding: 8px 8px;
-  background-color: white;
-  border-radius: 4px;
-  -webkit-box-shadow: 3px 5px 10px 0px #665866;
-          box-shadow: 3px 5px 10px 0px #665866;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (min-width: 768px) {
