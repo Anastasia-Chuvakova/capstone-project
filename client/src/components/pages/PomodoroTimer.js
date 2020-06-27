@@ -3,14 +3,6 @@ import React, { Component } from "react";
 import Tasks from "../Tasks";
 import moment from "moment";
 class PomodoroTimer extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  // DefaultTimer = (props) => {
-  //   console.log("Default timer rendered");
-  // };
-
   render() {
     return (
       <div className="timers-page__container">

@@ -4,7 +4,7 @@ import RuleTimer from "./pages/RuleTimer";
 import DefaultTimer from "./pages/DefaultTimer";
 import PomodoroTimer from "./pages/PomodoroTimer";
 import CustomTimer from "./pages/CustomTimer";
-
+import moment from "moment";
 import axios from "axios";
 
 class SessionsTimer extends Component {
@@ -32,6 +32,9 @@ class SessionsTimer extends Component {
     console.log("App componentDidMount");
     console.log("App componentDidMount");
     this.populateData();
+  }
+  componentDidUpdate() {
+    console.log("SESSIONSTIMER UPDATED");
   }
 
   finishAll = (
@@ -137,9 +140,6 @@ class SessionsTimer extends Component {
           document.title = "WORK🧠";
         }
       }, 1000);
-      //}
-      // };
-      // toggle start and stop
     } else {
       console.log("timer stopped");
 
@@ -148,8 +148,6 @@ class SessionsTimer extends Component {
         timersData: timer,
       });
       this.stopTimer();
-      // this.state.timersData[0].timerActive = false;
-      // this.forceUpdate();
     }
   };
 
@@ -172,134 +170,72 @@ class SessionsTimer extends Component {
     console.log("timer", timer);
     this.setState({ timersData: timer });
   };
-  // intervalChange = () => {
-  //   this.interval = setInterval(() => {
-  //     if (
-  //       this.state.defaultTimerCount <= 5 &&
-  //       this.state.currentTimer === "Work Session" &&
-  //       this.state.eyeCount > 0
-  //     ) {
-  //       this.setState((props) => ({
-  //         eyeBreakIsActive: true,
-  //         eyeCount: this.state.eyeCount - 1,
-  //       }));
-  //       this.setState((prevState) => ({
-  //         count: prevState.count - 1,
-  //       }));
-  //     } else if (this.state.eyeCount <= 0 && this.state.eyeBreakIsActive) {
-  //       this.setState((props) => ({
-  //         eyeBreakIsActive: false,
-  //         eyeCount: this.state.eyeTime,
-  //       }));
-  //     } else {
-  //       this.setState((prevState) => ({
-  //         defaultTimerCount: prevState.count - 1,
-  //       }));
-  //     }
-  //     if (this.state.mainSession <= 0) {
-  //       clearInterval(this.interval);
-  //     }
-  //   }, 1000);
-  // };
-  // finish=()=>{
-  //   if finish early is cliccked or the day timer is = 0,
-  //   return time info to the endrecord pageXOffset.
-  // }
 
   /////////////////////////////////////////////////////////////////////////
   render() {
     return (
       <>
-        <Router>
-          <Switch>
-            <Route
-              path="/sessionstimer/default"
-              render={() => (
-                <DefaultTimer
-                  timerCount={this.state.currentSession}
-                  startTimer={this.startTimer}
-                  timerActive={this.state.timerActive}
-                  stopTimer={this.stopTimer}
-                  timersData={this.state.timersData}
-                  finishAll={this.finishAll}
-                />
-              )}
-              exact
-            />
-            <Route
-              path="/sessionstimer/pomodoro"
-              render={() => (
-                <PomodoroTimer
-                  timerCount={this.state.currentSession}
-                  startTimer={this.startTimer}
-                  timerActive={this.state.timerActive}
-                  stopTimer={this.stopTimer}
-                  timersData={this.state.timersData}
-                  finishAll={this.finishAll}
-                />
-              )}
-              exact
-            />
-            <Route
-              path="/sessionstimer/rule-timer"
-              render={() => (
-                <RuleTimer
-                  timerCount={this.state.currentSession}
-                  startTimer={this.startTimer}
-                  timerActive={this.state.timerActive}
-                  stopTimer={this.stopTimer}
-                  timersData={this.state.timersData}
-                  finishAll={this.finishAll}
-                />
-              )}
-              exact
-            />
-            <Route
-              path="/sessionstimer/custom"
-              render={() => (
-                <CustomTimer
-                  timerCount={this.state.currentSession}
-                  startTimer={this.startTimer}
-                  timerActive={this.state.timerActive}
-                  stopTimer={this.stopTimer}
-                  timersData={this.state.timersData}
-                  setCustomTimer={this.setCustomTimer}
-                  finishAll={this.finishAll}
-                />
-              )}
-              exact
-            />
-          </Switch>
-        </Router>
+        <Switch>
+          <Route
+            path="/sessionstimer/default"
+            render={() => (
+              <DefaultTimer
+                timerCount={this.state.currentSession}
+                startTimer={this.startTimer}
+                timerActive={this.state.timerActive}
+                stopTimer={this.stopTimer}
+                timersData={this.state.timersData}
+                finishAll={this.finishAll}
+              />
+            )}
+            exact
+          />
+          <Route
+            path="/sessionstimer/pomodoro"
+            render={() => (
+              <PomodoroTimer
+                timerCount={this.state.currentSession}
+                startTimer={this.startTimer}
+                timerActive={this.state.timerActive}
+                stopTimer={this.stopTimer}
+                timersData={this.state.timersData}
+                finishAll={this.finishAll}
+              />
+            )}
+            exact
+          />
+          <Route
+            path="/sessionstimer/rule-timer"
+            render={() => (
+              <RuleTimer
+                timerCount={this.state.currentSession}
+                startTimer={this.startTimer}
+                timerActive={this.state.timerActive}
+                stopTimer={this.stopTimer}
+                timersData={this.state.timersData}
+                finishAll={this.finishAll}
+              />
+            )}
+            exact
+          />
+          <Route
+            path="/sessionstimer/custom"
+            render={() => (
+              <CustomTimer
+                timerCount={this.state.currentSession}
+                startTimer={this.startTimer}
+                timerActive={this.state.timerActive}
+                stopTimer={this.stopTimer}
+                timersData={this.state.timersData}
+                setCustomTimer={this.setCustomTimer}
+                finishAll={this.finishAll}
+              />
+            )}
+            exact
+          />
+        </Switch>
       </>
     );
   }
 }
 export default SessionsTimer;
-
-//   intervalChange = () => {
-//     this.interval = setInterval(() => {
-//       if (
-//         this.state.defaultTimerCount <= 5 &&
-//         this.state.currentTimer === "Work Session" &&
-//         this.state.eyeCount > 0
-//       ) {
-//         this.setState((props) => ({
-//           eyeBreakIsActive: true,
-//           eyeCount: this.state.eyeCount - 1,
-//         }));
-//         this.setState((prevState) => ({
-//           count: prevState.count - 1,
-//         }));
-//       } else if (this.state.eyeCount <= 0 && this.state.eyeBreakIsActive) {
-//         this.setState((props) => ({
-//           eyeBreakIsActive: false,
-//           eyeCount: this.state.eyeTime,
-//         }));
-//       } else {
-//         this.setState((prevState) => ({
-//           defaultTimerCount: prevState.count - 1,
-//         }));
-//       }
-//
-////////////////////////////////////////////////////////////////////////////////////////////

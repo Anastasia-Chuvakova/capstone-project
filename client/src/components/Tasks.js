@@ -7,8 +7,6 @@ export default class Tasks extends Component {
 
     this.state = {
       items: [],
-      // rememberMe: false,
-      // //tasks: "",
     };
 
     this.addItem = this.addItem.bind(this);

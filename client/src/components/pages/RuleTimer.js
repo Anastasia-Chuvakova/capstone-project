@@ -4,12 +4,6 @@ import React, { Component } from "react";
 import Tasks from "../Tasks";
 import moment from "moment";
 class RuleTimer extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  // RuleTimer = (props) => {
-  //   console.log("Rule timer rendered");
-  // };
   componentDidMount() {}
   render() {
     return (
