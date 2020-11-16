@@ -11,8 +11,7 @@ export default class EndRecord extends Component {
     breakCount: "",
     tasks: [
       {
-        task: "",
-        time: "",
+        text: "There are no tasks.",
       },
     ],
   };
@@ -39,7 +38,9 @@ export default class EndRecord extends Component {
     //Get Session storage for task list
     let tasks = sessionStorage.getItem("tasks");
     console.log("TASKS: ", tasks);
-    this.setState({ tasks: JSON.parse(tasks) });
+    if (tasks !== null) {
+      this.setState({ tasks: JSON.parse(tasks) });
+    }
   }
   render() {
     return (
